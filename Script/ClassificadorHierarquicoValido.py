@@ -90,6 +90,7 @@ for label_idx in range(y_test.shape[1]):
     print(f"Avaliando o rótulo: {label_idx}")
     print(classification_report(y_test[:, label_idx], (predictions[label_idx] >= 0.5).astype(int), zero_division=0))
 
+print("terminou")
 '''    
 classes = [f"Classe {i}" for i in range(len(y_train.sum(axis=0)))]
 train_distribution = y_train.sum(axis=0)
