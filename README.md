@@ -78,6 +78,11 @@ Avaliando o rótulo: 0
    macro avg       0.75      0.67      0.69      1716
 weighted avg       0.86      0.87      0.86      1716
 
+```
+
+![ConfuseM](https://github.com/user-attachments/assets/149bf533-2049-475f-9875-01a19dbb2044)
+
+```
 Avaliando o rótulo: 1
               precision    recall  f1-score   support
 
@@ -87,7 +92,10 @@ Avaliando o rótulo: 1
     accuracy                           0.92      1716
    macro avg       0.70      0.64      0.66      1716
 weighted avg       0.91      0.92      0.91      1716
+```
+![ConfuseM1](https://github.com/user-attachments/assets/3339dc65-5205-4552-b97f-0bcfb5d8f435)
 
+```
 Avaliando o rótulo: 2
               precision    recall  f1-score   support
 
@@ -97,7 +105,10 @@ Avaliando o rótulo: 2
     accuracy                           0.99      1716
    macro avg       0.81      0.83      0.82      1716
 weighted avg       0.99      0.99      0.99      1716
+```
+![ConfuseM2](https://github.com/user-attachments/assets/fddb34bb-ab25-44a9-b41e-3faff04f0e16)
 
+```
 Avaliando o rótulo: 3
               precision    recall  f1-score   support
 
@@ -107,7 +118,10 @@ Avaliando o rótulo: 3
     accuracy                           0.99      1716
    macro avg       0.74      0.55      0.58      1716
 weighted avg       0.98      0.99      0.98      1716
+```
+![ConfuseM3](https://github.com/user-attachments/assets/1bade5fb-688b-43ce-b1bc-af7d6f977cbd)
 
+```
 Avaliando o rótulo: 4
               precision    recall  f1-score   support
 
@@ -118,6 +132,7 @@ Avaliando o rótulo: 4
    macro avg       0.62      0.57      0.59      1716
 weighted avg       0.98      0.98      0.98      1716
 ```
+![ConfuseM4](https://github.com/user-attachments/assets/741236e1-3a13-4f38-afd7-61d1df0483dc)
 
 
 
