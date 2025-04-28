@@ -51,13 +51,14 @@ O script principal executa as seguintes etapas:
 Os resultados incluem:
 
 Exemplo das 5 primeiras linhas das Predições : 
-
+```
          0         1         2         3         4   ...        23        24        25        26        27
 0  0.822482  0.011491  0.000115  0.003364  0.015925  ...  0.004265  0.000120  0.001934  0.061836  0.005956
 1  0.244313  0.009504  0.000059  0.000159  0.000568  ...  0.009568  0.000025  0.000069  0.000182  0.001240
 2  0.363881  0.003745  0.000245  0.000483  0.001907  ...  0.001373  0.000053  0.000473  0.000115  0.003684
 3  0.048330  0.006886  0.000459  0.000477  0.000181  ...  0.003678  0.000150  0.000025  0.000037  0.000387
 4  0.337050  0.473267  0.000016  0.006089  0.003918  ...  0.024235  0.000120  0.000419  0.000021  0.006913
+```
 
 Exemplo de saída dos 5 primeiros rótulos :
 ```
@@ -112,7 +113,6 @@ Avaliando o rótulo: 4
    macro avg       0.62      0.57      0.59      1716
 weighted avg       0.98      0.98      0.98      1716
 ```
-![GraficoOriginalParticoes](https://github.com/user-attachments/assets/22af5312-9a81-40e7-8300-febb130496a4)
 
 ## Estrutura do Repositório
 - [`Scripts/ClassificadorOriginalParticoes.py`](https://github.com/Carlosbera7/ExperimentoOriginalParticoes/blob/main/Script/ClassificadorOriginalParticoes.py): Script principal para executar o experimento.
