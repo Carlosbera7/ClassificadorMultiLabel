@@ -34,9 +34,11 @@ O experimento foi implementado em Python 3.6 utilizando as bibliotecas:
 - Scikit-learn
 - XGBoost
 
+- 
+
 ## Divisão
 ![Divisao](https://github.com/user-attachments/assets/7da2dc03-7fc2-4680-8d21-094c31f174a9)
-
+![Divisao](https://github.com/Carlosbera7/SalvarParticoesMultiLabel/blob/main/Data/GraficoReduzido.html)
 
 O script principal executa as seguintes etapas:
 1. Carregamento das partições salvas.
