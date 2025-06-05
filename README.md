@@ -14,6 +14,8 @@ O experimento segue as etapas descritas no artigo:
 
 3. **Vetorização do Texto**:
    - O texto (X) é vetorizado usando TF-IDF com um limite de 5000 features.
+     (Parâmetro encontrado via grid_search)
+     INFO - Melhores parâmetros encontrados: {'tfidf__max_features': 5000}
    - Stopwords em português são removidas utilizando a biblioteca NLTK.
       
 4. **Divisão dos Dados**:
