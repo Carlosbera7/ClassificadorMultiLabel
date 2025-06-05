@@ -52,13 +52,14 @@ O script principal executa as seguintes etapas:
 - [`Execução`](https://musical-space-yodel-9rpvjvw9qr39vw4.github.dev/): O código pode ser executado diretamente no ambiente virtual.
 
 ## Resultados
-
+```
 Resumo dos Resultados de Classificação por RótuloA tabela abaixo apresenta as métricas de precisão, recall, F1-score e suporte para a classe positiva (classe 1), juntamente com a acurácia geral do modelo, para cada um dos 28 rótulos avaliados.IDNome do RótuloPrecision (Cl. 1)Recall (Cl. 1)F1-Score (Cl. 1)Support (Cl. 1)Accuracy (Geral)0Hate speech0.720.390.513680.841Sexism0.610.370.462020.902Body0.790.680.73380.993Racism1.000.070.13280.984Ideology0.140.070.10280.985Homophobia0.910.640.75970.986Origin0.000.000.0080.997Religion0.000.000.0090.998Other lifestyle0.500.170.2561.009Fat people0.730.690.71350.9910Left-wing ideology0.000.000.0090.9911Ugly people0.770.770.77220.9912Black people0.670.120.21160.9913Fat women0.670.790.72280.9914Feminists0.250.160.19190.9915Gays0.700.260.38270.9916Immigrants0.000.000.0041.0017Islamists0.000.000.0071.0018Lesbians0.930.950.94591.0019Men0.730.350.48310.9920Muslims0.500.500.5021.0021Refugees0.360.380.37210.9822Trans women0.000.000.0090.9923Women0.640.360.461520.9224Transsexuals0.000.000.0061.0025Ugly women0.730.760.74210.9926Migrants0.360.360.36250.9827Homosexuals0.910.710.79820.98Observações:Desempenho Variável: O desempenho do modelo (especialmente o F1-Score para a classe 1) varia consideravelmente entre os diferentes rótulos.Baixo Suporte: Alguns rótulos (ex: Origin, Religion, Other lifestyle, Left-wing ideology, Immigrants, Islamists, Trans women, Transsexuals) têm um número muito baixo de amostras de suporte para a classe 1, o que pode tornar as métricas de precisão, recall e F1-score para essa classe menos robustas ou até mesmo nulas se o modelo não conseguir identificar corretamente nenhuma instância.Alta Acurácia Geral: A acurácia geral é consistentemente alta (muitas vezes >0.98). No entanto, isso pode ser influenciado pelo desequilíbrio de classes (muitas instâncias da classe 0 em comparação com a classe 1 para certos rótulos). O F1-score para a classe 1 é uma métrica mais indicativa do desempenho na classe minoritária.Rótulos com Melhor Desempenho na Classe 1 (F1-Score > 0.70): "Body" (0.73), "Homophobia" (0.75), "Fat people" (0.71), "Ugly people" (0.77), "Fat women" (0.72), "Lesbians" (0.94), "Ugly women" (0.74), "Homosexuals" (0.79).Rótulos com Desempenho Pobre ou Nulo na Classe 1 (F1-Score = 0.00): "Origin", "Religion", "Left-wing ideology", "Immigrants", "Islamists", "Trans women", "Transsexuals". Isto geralmente indica que o modelo não conseguiu classificar corretamente nenhuma instância da classe positiva para estes rótulos, ou que não havia instâncias suficientes para uma avaliação significativa.
+```
 
 Os resultados incluem:
 
 Exemplo das 5 primeiras linhas das Predições : 
-```
+
          0         1         2         3         4   ...        23        24        25        26        27
 0  0.822482  0.011491  0.000115  0.003364  0.015925  ...  0.004265  0.000120  0.001934  0.061836  0.005956
 1  0.244313  0.009504  0.000059  0.000159  0.000568  ...  0.009568  0.000025  0.000069  0.000182  0.001240
