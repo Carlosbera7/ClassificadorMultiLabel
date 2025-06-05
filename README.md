@@ -52,9 +52,34 @@ O script principal executa as seguintes etapas:
 - [`Execução`](https://musical-space-yodel-9rpvjvw9qr39vw4.github.dev/): O código pode ser executado diretamente no ambiente virtual.
 
 ## Resultados
-```
-Resumo dos Resultados de Classificação por RótuloA tabela abaixo apresenta as métricas de precisão, recall, F1-score e suporte para a classe positiva (classe 1), juntamente com a acurácia geral do modelo, para cada um dos 28 rótulos avaliados.IDNome do RótuloPrecision (Cl. 1)Recall (Cl. 1)F1-Score (Cl. 1)Support (Cl. 1)Accuracy (Geral)0Hate speech0.720.390.513680.841Sexism0.610.370.462020.902Body0.790.680.73380.993Racism1.000.070.13280.984Ideology0.140.070.10280.985Homophobia0.910.640.75970.986Origin0.000.000.0080.997Religion0.000.000.0090.998Other lifestyle0.500.170.2561.009Fat people0.730.690.71350.9910Left-wing ideology0.000.000.0090.9911Ugly people0.770.770.77220.9912Black people0.670.120.21160.9913Fat women0.670.790.72280.9914Feminists0.250.160.19190.9915Gays0.700.260.38270.9916Immigrants0.000.000.0041.0017Islamists0.000.000.0071.0018Lesbians0.930.950.94591.0019Men0.730.350.48310.9920Muslims0.500.500.5021.0021Refugees0.360.380.37210.9822Trans women0.000.000.0090.9923Women0.640.360.461520.9224Transsexuals0.000.000.0061.0025Ugly women0.730.760.74210.9926Migrants0.360.360.36250.9827Homosexuals0.910.710.79820.98Observações:Desempenho Variável: O desempenho do modelo (especialmente o F1-Score para a classe 1) varia consideravelmente entre os diferentes rótulos.Baixo Suporte: Alguns rótulos (ex: Origin, Religion, Other lifestyle, Left-wing ideology, Immigrants, Islamists, Trans women, Transsexuals) têm um número muito baixo de amostras de suporte para a classe 1, o que pode tornar as métricas de precisão, recall e F1-score para essa classe menos robustas ou até mesmo nulas se o modelo não conseguir identificar corretamente nenhuma instância.Alta Acurácia Geral: A acurácia geral é consistentemente alta (muitas vezes >0.98). No entanto, isso pode ser influenciado pelo desequilíbrio de classes (muitas instâncias da classe 0 em comparação com a classe 1 para certos rótulos). O F1-score para a classe 1 é uma métrica mais indicativa do desempenho na classe minoritária.Rótulos com Melhor Desempenho na Classe 1 (F1-Score > 0.70): "Body" (0.73), "Homophobia" (0.75), "Fat people" (0.71), "Ugly people" (0.77), "Fat women" (0.72), "Lesbians" (0.94), "Ugly women" (0.74), "Homosexuals" (0.79).Rótulos com Desempenho Pobre ou Nulo na Classe 1 (F1-Score = 0.00): "Origin", "Religion", "Left-wing ideology", "Immigrants", "Islamists", "Trans women", "Transsexuals". Isto geralmente indica que o modelo não conseguiu classificar corretamente nenhuma instância da classe positiva para estes rótulos, ou que não havia instâncias suficientes para uma avaliação significativa.
-```
+
+| Rótulo | Precisão (0) | Recall (0) | F1-Score (0) | Suporte (0) | Precisão (1) | Recall (1) | F1-Score (1) | Suporte (1) | Acurácia | Macro Avg. (F1) | Weighted Avg. (F1) |
+| ------ | ------------ | ---------- | ------------ | ----------- | ------------ | ---------- | ------------ | ----------- | -------- | --------------- | ------------------ |
+| 0      | 0.85         | 0.96       | 0.90         | 1333        | 0.72         | 0.39       | 0.51         | 368         | 0.84     | 0.71            | 0.82               |
+| 1      | 0.92         | 0.97       | 0.94         | 1499        | 0.61         | 0.37       | 0.46         | 202         | 0.90     | 0.70            | 0.89               |
+| 2      | 0.99         | 1.00       | 0.99         | 1663        | 0.79         | 0.68       | 0.73         | 38          | 0.99     | 0.86            | 0.99               |
+| 3      | 0.98         | 1.00       | 0.99         | 1673        | 1.00         | 0.07       | 0.13         | 28          | 0.98     | 0.56            | 0.98               |
+| 4      | 0.98         | 0.99       | 0.99         | 1673        | 0.14         | 0.07       | 0.10         | 28          | 0.98     | 0.54            | 0.97               |
+| 5      | 0.98         | 1.00       | 0.99         | 1604        | 0.91         | 0.64       | 0.75         | 97          | 0.98     | 0.87            | 0.97               |
+| 6      | 1.00         | 1.00       | 1.00         | 1693        | 0.00         | 0.00       | 0.00         | 8           | 0.99     | 0.50            | 0.99               |
+| 7      | 0.99         | 1.00       | 1.00         | 1692        | 0.00         | 0.00       | 0.00         | 9           | 0.99     | 0.50            | 0.99               |
+| 8      | 1.00         | 1.00       | 1.00         | 1695        | 0.50         | 0.17       | 0.25         | 6           | 1.00     | 0.62            | 1.00               |
+| 9      | 0.99         | 0.99       | 0.99         | 1666        | 0.73         | 0.69       | 0.71         | 35          | 0.99     | 0.85            | 0.99               |
+| 10     | 0.99         | 1.00       | 1.00         | 1692        | 0.00         | 0.00       | 0.00         | 9           | 0.99     | 0.50            | 0.99               |
+| 11     | 1.00         | 1.00       | 1.00         | 1679        | 0.77         | 0.77       | 0.77         | 22          | 0.99     | 0.88            | 0.99               |
+| 12     | 0.99         | 1.00       | 1.00         | 1685        | 0.67         | 0.12       | 0.21         | 16          | 0.99     | 0.60            | 0.99               |
+| 13     | 1.00         | 0.99       | 0.99         | 1673        | 0.67         | 0.79       | 0.72         | 28          | 0.99     | 0.86            | 0.99               |
+| 14     | 0.99         | 0.99       | 0.99         | 1682        | 0.25         | 0.16       | 0.19         | 19          | 0.99     | 0.59            | 0.98               |
+| 15     | 0.99         | 1.00       | 0.99         | 1674        | 0.70         | 0.26       | 0.38         | 27          | 0.99     | 0.69            | 0.98               |
+| 16     | 1.00         | 1.00       | 1.00         | 1697        | 0.00         | 0.00       | 0.00         | 4           | 1.00     | 0.50            | 1.00               |
+| 17     | 1.00         | 1.00       | 1.00         | 1694        | 0.00         | 0.00       | 0.00         | 7           | 1.00     | 0.50            | 0.99               |
+| 18     | 1.00         | 1.00       | 1.00         | 1642        | 0.93         | 0.95       | 0.94         | 59          | 1.00     | 0.97            | 1.00               |
+| 19     | 0.99         | 1.00       | 0.99         | 1670        | 0.73         | 0.35       | 0.48         | 31          | 0.99     | 0.74            | 0.98               |
+| 20     | 1.00         | 1.00       | 1.00         | 1699        | 0.50         | 0.50       | 0.50         | 2           | 1.00     | 0.75            | 1.00               |
+| 21     | 0.99         | 0.99       | 0.99         | 1680        | 0.36         | 0.38       | 0.37         | 21          | 0.98     | 0.68            | 0.98               |
+| 22     | 0.99         | 1.00       | 1.00         | 1692        | 0.00         | 0.00       | 0.00         | 9           | 0.99     | 0.50            | 0.99               |
+| 23     | 0.94         | 0.98       | 0.96         | 1549        | 0.64         | 0.36       | 0.46         | 152         | 0.92     | 0.71            | 0.92               |
+
 
 Os resultados incluem:
 
