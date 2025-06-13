@@ -37,19 +37,10 @@ O experimento foi implementado em Python 3.6 utilizando as bibliotecas:
 ![DivisaoTreinoTeste](https://github.com/user-attachments/assets/9025a93e-c141-4d58-b593-68b27f6cbc89)
 
 
-O script principal executa as seguintes etapas:
-1. Carregamento das partições salvas.
-2. Tokenização e padding das sequências de texto.
-3. Carregamento dos embeddings GloVe.
-4. Construção e treinamento do modelo LSTM.
-5. Extração das representações intermediárias.
-6. Treinamento e avaliação do XGBoost.
-7. Busca de hiperparâmetros com validação cruzada.
 
 ## Estrutura do Repositório
-- [`Scripts/ClassificadorHierarquicoValido.py`](https://github.com/Carlosbera7/ClassificadorMultiLabel/blob/main/Script/MultiLabel.py): Script principal para executar o experimento.
+- [`Scripts/MultiLabel.py`](https://github.com/Carlosbera7/ClassificadorMultiLabel/blob/main/Script/MultiLabel.py): Script principal para executar o experimento.
 - [`Data/`](https://github.com/Carlosbera7/ClassificadorMultiLabel/tree/main/Data): Pasta contendo o conjunto de dados e o Embeddings GloVe pré-treinados (necessário para execução).
-- [`Execução`](https://musical-space-yodel-9rpvjvw9qr39vw4.github.dev/): O código pode ser executado diretamente no ambiente virtual.
 
 ## Resultados
 
