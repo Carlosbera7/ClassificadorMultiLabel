@@ -34,8 +34,16 @@ O experimento foi implementado em Python 3.6 utilizando as bibliotecas:
 - XGBoost
 
 ## Divisão
+
+Divisão das Partições :
 ![DivisaoTreinoTeste](https://github.com/user-attachments/assets/9025a93e-c141-4d58-b593-68b27f6cbc89)
 
+
+Detalhamento da partição de Treino :
+![image](https://github.com/user-attachments/assets/dd2d8d46-41b8-448e-8516-671de5cadc13)
+
+Detalhamento da partição de Teste :
+![image](https://github.com/user-attachments/assets/5b141df6-de9d-4437-a99c-0a30a8401d76)
 
 
 ## Estrutura do Repositório
