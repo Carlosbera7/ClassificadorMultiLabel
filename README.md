@@ -6,25 +6,12 @@ Este repositório contém a implementação do experimento utilizando Xgboost pa
 O experimento segue as etapas descritas no artigo:
 
 1. **Carregamento dos Dados**:
-   - O arquivo CSV 2019-05-28_portuguese_hate_speech_hierarchical_classification.csv é carregado.
-   - A coluna text é separada como as features (X), e as demais colunas são tratadas como rótulos (y).
-
-2. **Pré-processamento dos Rótulos**:
-     - São mantidos apenas classes que tenham pelo menos 10 instâncias. 
-
-3. **Vetorização do Texto**:
-   - O texto (X) é vetorizado usando TF-IDF com um limite de 5000 features.
-     (Parâmetro encontrado via grid_search)
-     INFO - Melhores parâmetros encontrados: {'tfidf__max_features': 5000}
-   - Stopwords em português são removidas utilizando a biblioteca NLTK.
-      
-4. **Divisão dos Dados**:
-   - Os dados são divididos em conjuntos de treino e teste utilizando stratificação hierárquica com a função iterative_train_test_split da biblioteca scikit-multilearn.
-   - A distribuição das classes nos conjuntos de treino e teste é verificada.
+   - Carrega as partições ja salvas anteriormente por ![DivisaoTreinoTeste](https://github.com/user-attachments/assets/9025a93e-c141-4d58-b593-68b27f6cbc89).
   
-5. **Treinamento do Modelo**:
+2. **Treinamento do Modelo**:
    - Um modelo XGBoost é treinado para cada rótulo (coluna de y).
    - O modelo utiliza a função de objetivo binary:logistic para classificação binária.
+   - O modelo treinado do XgBoost é salvo em Data.
      
 ## Implementação
 O experimento foi implementado em Python 3.6 utilizando as bibliotecas:
@@ -48,7 +35,7 @@ Detalhamento da partição de Teste :
 
 ## Estrutura do Repositório
 - [`Scripts/MultiLabel.py`](https://github.com/Carlosbera7/ClassificadorMultiLabel/blob/main/Script/MultiLabel.py): Script principal para executar o experimento.
-- [`Data/`](https://github.com/Carlosbera7/ClassificadorMultiLabel/tree/main/Data): Pasta contendo o conjunto de dados e o Embeddings GloVe pré-treinados (necessário para execução).
+- [`Data/`](https://github.com/Carlosbera7/ClassificadorMultiLabel/tree/main/Data): Pasta contendo o conjunto de dados e o modelo treinado do XGBoost para cada rótulo. 
 
 ## Resultados
 
