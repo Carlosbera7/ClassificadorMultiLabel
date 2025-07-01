@@ -6,7 +6,7 @@ Este repositório contém a implementação do experimento utilizando Xgboost pa
 O experimento segue as etapas descritas no artigo:
 
 1. **Carregamento dos Dados**:
-   - Carrega as partições ja salvas anteriormente por ![DivisaoTreinoTeste](https://github.com/user-attachments/assets/9025a93e-c141-4d58-b593-68b27f6cbc89).
+   - Carrega as partições ja salvas anteriormente por https://github.com/Carlosbera7/SalvarParticoesMultiLabel.
   
 2. **Treinamento do Modelo**:
    - Um modelo XGBoost é treinado para cada rótulo (coluna de y).
