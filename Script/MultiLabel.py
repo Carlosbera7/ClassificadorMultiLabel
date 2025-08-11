@@ -1,17 +1,17 @@
 import pandas as pd
-import xgboost as xgb
-from sklearn.metrics import classification_report
+import numpy as np
 import re
-import nltk
-from sklearn.feature_extraction.text import TfidfVectorizer
-from skmultilearn.model_selection import iterative_train_test_split
-from nltk.corpus import stopwords
+import os
+import pickle
 import logging
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics import classification_report
+from sklearn.model_selection import cross_val_predict
+from iterstrat.ml_stratifiers import MultilabelStratifiedKFold
+from nltk.corpus import stopwords
+import xgboost as xgb
 
-nltk.download('stopwords')
-
-# Configurações de logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO)
 
 def clean_text(text):
     text = re.sub(r'[^\w\s]', '', str(text).lower())
@@ -36,34 +36,58 @@ def filter_labels(y, min_count=10):
     valid_labels = label_counts[label_counts >= min_count].index
     return y[valid_labels]
 
-def train_and_evaluate(X_train, y_train, X_test, y_test):
+def gerar_particoes_multilabel(X_tfidf, y, n_splits=10, caminho='particoes.pkl'):
+    logging.info(f"📁 Gerando {n_splits} partições multilabel para validação cruzada...")
+
+    os.makedirs(os.path.dirname(caminho), exist_ok=True)
+
+    mskf = MultilabelStratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
+    folds = []
+
+    for train_idx, test_idx in mskf.split(X_tfidf, y):
+        folds.append((train_idx, test_idx))
+
+    with open(caminho, 'wb') as f:
+        pickle.dump(folds, f)
+
+    logging.info(f"✅ Partições salvas em {os.path.abspath(caminho)}")
+
+def train_cross_validation(X, y, folds):
     params = {
         'max_depth': 6,
         'objective': 'binary:logistic',
         'eval_metric': 'logloss'
     }
-    models = {}
-    predictions = {}
 
-    for label_idx in range(y_train.shape[1]):
-        logging.info(f"Treinando modelo para o rótulo: {label_idx}")
-        dtrain_label = xgb.DMatrix(data=X_train, label=y_train[:, label_idx])
-        model = xgb.train(params, dtrain_label, num_boost_round=100)
-        models[label_idx] = model
+    all_predictions = np.zeros(y.shape)
 
-        logging.info(f"Fazendo previsões para o rótulo: {label_idx}")
-        dtest_label = xgb.DMatrix(data=X_test)
-        predictions[label_idx] = model.predict(dtest_label)
+    for fold_idx, (train_idx, test_idx) in enumerate(folds):
+        logging.info(f"🔁 Fold {fold_idx + 1}/{len(folds)}")
 
-    predictions_df = pd.DataFrame(predictions)
-    predictions_df.to_csv("predictions.csv", index=False)
-    logging.info("Previsões salvas em predictions.csv")
+        X_train, X_test = X[train_idx], X[test_idx]
+        y_train, y_test = y[train_idx], y[test_idx]
 
-    for label_idx in range(y_test.shape[1]):
+        for label_idx in range(y.shape[1]):
+            logging.info(f"Treinando rótulo {label_idx} no Fold {fold_idx + 1}")
+            dtrain = xgb.DMatrix(X_train, label=y_train[:, label_idx])
+            dtest = xgb.DMatrix(X_test)
+
+            model = xgb.train(params, dtrain, num_boost_round=100)
+            preds = model.predict(dtest)
+
+            all_predictions[test_idx, label_idx] = preds
+
+    predictions_df = pd.DataFrame(all_predictions)
+    predictions_df.to_csv("predictions_crossval.csv", index=False)
+    logging.info("📄 Previsões salvas em predictions_crossval.csv")
+    # Após gerar predictions_df    
+
+    # Avaliação geral
+    for label_idx in range(y.shape[1]):
         logging.info(f"Avaliando o rótulo: {label_idx}")
         print(classification_report(
-            y_test[:, label_idx],
-            (predictions[label_idx] >= 0.5).astype(int),
+            y[:, label_idx],
+            (all_predictions[:, label_idx] >= 0.5).astype(int),
             zero_division=0
         ))
 
@@ -79,13 +103,17 @@ def gerar():
     vectorizer = TfidfVectorizer(max_features=5000, stop_words=portuguese_stopwords)
     X_tfidf = vectorizer.fit_transform(X)
 
-    X_train, y_train, X_test, y_test = iterative_train_test_split(X_tfidf, y.values, test_size=0.3)
-    logging.info(f"Formatos: X_train: {X_train.shape}, y_train: {y_train.shape}, X_test: {X_test.shape}, y_test: {y_test.shape}")
+    if not os.path.exists("particoes.pkl"):
+        gerar_particoes_multilabel(X_tfidf, y.values, n_splits=5, caminho="particoes.pkl")
 
-    train_and_evaluate(X_train, y_train, X_test, y_test)
+    with open("particoes.pkl", "rb") as f:
+        folds = pickle.load(f)
+
+    train_cross_validation(X_tfidf, y.values, folds)
 
 if __name__ == "__main__":
     gerar()
+
 
 
 
