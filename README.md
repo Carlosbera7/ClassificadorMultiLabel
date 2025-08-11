@@ -71,6 +71,9 @@ Detalhamento da partição de Teste :
 | Migrants     | 0.99      | 1.00       | 0.99   | 0.43      | 0.22       | 0.29   | 0.98     |
 | Homossexuals     | 0.99      | 1.00       | 0.99   | 0.95      | 0.84       | 0.89   | 0.99     |
 
+<img width="2226" height="1411" alt="image" src="https://github.com/user-attachments/assets/6fd73ccb-206b-42fd-8188-b1fa10126cb4" />
+
+
 
 
 
