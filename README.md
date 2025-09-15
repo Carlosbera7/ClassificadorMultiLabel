@@ -41,6 +41,7 @@ Detalhamento da partição de Teste :
 
 <img width="1400" height="600" alt="image" src="https://github.com/user-attachments/assets/87b30b74-814f-498f-9822-d179501f41c0" />
 
+<img width="2779" height="1580" alt="image" src="https://github.com/user-attachments/assets/ae5c6473-b13f-4fd6-afb8-af5fa8c2c40c" />
 
 | Rótulo | Prec. (0) | Recall (0) | F1 (0) | Prec. (1) | Recall (1) | F1 (1) | Acurácia |
 |--------|-----------|------------|--------|-----------|------------|--------|----------|
@@ -73,7 +74,7 @@ Detalhamento da partição de Teste :
 | Migrants     | 0.99      | 1.00       | 0.99   | 0.43      | 0.22       | 0.29   | 0.98     |
 | Homossexuals     | 0.99      | 1.00       | 0.99   | 0.95      | 0.84       | 0.89   | 0.99     |
 
-<img width="2779" height="1580" alt="image" src="https://github.com/user-attachments/assets/ae5c6473-b13f-4fd6-afb8-af5fa8c2c40c" />
+
 
 
 
